@@ -1,5 +1,7 @@
 package com.cscenter.vmatm.cscmobiletest;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
+    private String token;
 /*
 *
 * ID: abb22631014741efae7f01eca8c076a5
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (findViewById(R.id.fragment_container) != null) {
+        if (token == null && findViewById(R.id.fragment_container) != null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             Fragment login = new WebLoginFragment();
             transaction.add(R.id.fragment_container, login);
@@ -43,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Uri openUri = intent.getData();
+        String[] params = openUri.getEncodedFragment().split("&");
+        this.token = params[0];
     }
 
     @Override
