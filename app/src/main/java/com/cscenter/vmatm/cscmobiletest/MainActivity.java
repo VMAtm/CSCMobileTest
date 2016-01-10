@@ -10,7 +10,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
-//https://oauth.yandex.ru/authorize?response_type=token&client_id=abb22631014741efae7f01eca8c076a5
+/*
+*
+* ID: abb22631014741efae7f01eca8c076a5
+* Пароль: f929de3631434da89e9fe5d7030b7bb4
+* Callback URL: CSCMobileTest://token
+* https://oauth.yandex.ru/authorize?response_type=token&client_id=abb22631014741efae7f01eca8c076a5
+*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
