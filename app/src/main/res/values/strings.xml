@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">CSCMobileTest</string>
     <string name="action_settings">Settings</string>
+
+    <string name="url_with_client_id"><![CDATA[https://oauth.yandex.ru/authorize?response_type=token&client_id=abb22631014741efae7f01eca8c076a5]]></string>
 </resources>

@@ -3,6 +3,8 @@ package com.cscenter.vmatm.cscmobiletest;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -15,13 +17,21 @@ public class MainActivity extends AppCompatActivity {
 * ID: abb22631014741efae7f01eca8c076a5
 * Пароль: f929de3631434da89e9fe5d7030b7bb4
 * Callback URL: CSCMobileTest://token
-* https://oauth.yandex.ru/authorize?response_type=token&client_id=abb22631014741efae7f01eca8c076a5
+*
 */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (findViewById(R.id.fragment_container) != null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            Fragment login = new WebLoginFragment();
+            transaction.add(R.id.fragment_container, login);
+            transaction.commit();
+        }
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
